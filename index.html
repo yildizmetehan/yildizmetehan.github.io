@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Metehan Yıldız – Portfolyo</title>
+<style>
+:root{--bg:#EEF2F4;--ink:#14232E;--mute:#52636F;--line:#C9D3D9;--raw:#B45F06;--ok:#1B5FD1;--card:#F9FBFB;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A22;--ink:#E6EDF1;--mute:#9AABB6;--line:#2A3B47;--raw:#F0A24A;--ok:#7BA8FF;--card:#15232D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1A22;--ink:#E6EDF1;--mute:#9AABB6;--line:#2A3B47;--raw:#F0A24A;--ok:#7BA8FF;--card:#15232D;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 22px 64px}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;font-weight:700;line-height:1.2;margin:0}
+h1{font-size:clamp(2rem,6vw,3.4rem);letter-spacing:-.01em;max-width:18ch}
+h2{font-size:1.5rem;margin:56px 0 18px}
+h3{font-size:1.15rem}
+p{margin:0}
+a{color:var(--ok)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ok);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--mute);font-size:.95rem}
+.top b{color:var(--ink)}
+.lang button{font:inherit;background:none;border:1px solid var(--line);color:var(--mute);padding:4px 12px;cursor:pointer}
+.lang button:first-child{border-radius:6px 0 0 6px}.lang button:last-child{border-radius:0 6px 6px 0;border-left:0}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hero{margin-top:48px}
+.lead{margin-top:18px;color:var(--mute);max-width:56ch}
+.demo{margin-top:34px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 16px 12px}
+.demo svg{display:block;width:100%;height:auto}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;margin-top:8px;font-size:.92rem;color:var(--mute)}
+.key i{display:inline-block;width:22px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+.key{margin-right:14px}
+.sw{font:inherit;font-weight:600;background:var(--ok);color:var(--bg);border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
+.item{border-left:3px solid var(--line);padding:2px 0 2px 18px;margin-bottom:26px}
+.item .meta{color:var(--mute);font-size:.92rem}
+.item p{margin-top:6px;max-width:68ch}
+.tags{margin-top:8px;color:var(--mute);font-size:.92rem}
+.skills dt{font-weight:600;margin-top:12px}.skills dd{margin:2px 0 0;color:var(--mute)}
+.links{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:1.05rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 20px;margin-top:40px}.stats div{border-top:3px solid var(--ok);padding-top:8px}.stats b{display:block;font:700 2rem/1.2 Georgia,serif}.stats span{color:var(--mute);font-size:.92rem}
+.steps{margin:10px 0 0;padding-left:20px;max-width:64ch}.steps li{margin:4px 0}
+.repos{list-style:none;padding:0;margin:0;display:grid;gap:10px}.repos li{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:12px 16px}.repos a{font-weight:600}.repos span{display:block;color:var(--mute);font-size:.92rem}
+.certs{margin:0;padding-left:20px}.more{margin-top:14px}
+.tune{margin-top:12px;align-items:center}.tune input{accent-color:var(--ok);width:160px;vertical-align:middle;margin-left:8px}.read{font-size:.95rem;color:var(--ink)}.note{margin-top:8px;font-size:.85rem;color:var(--mute)}
+footer{margin-top:56px;color:var(--mute);font-size:.9rem}
+@media (max-width:520px){body{font-size:16px}.bar{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><b>Metehan Yıldız</b>
+<div class="lang" role="group" aria-label="Dil / Language"><button data-l="tr" aria-pressed="true">TR</button><button data-l="en" aria-pressed="false">EN</button></div></div>
+
+<section class="hero">
+<h1 data-i="h1"></h1>
+<p class="lead" data-i="lead"></p>
+<div class="demo">
+<svg id="chart" viewBox="0 0 640 280" role="img" aria-labelledby="ct"><title id="ct"></title></svg>
+<div class="bar"><div><span class="key"><i style="border-color:var(--mute);border-top-style:dashed"></i><span data-i="k_ref"></span></span><span class="key"><i id="kline"></i><span id="ktxt"></span></span></div>
+<button class="sw" id="sw" aria-pressed="false"></button></div>
+<div class="bar tune"><label><span data-i="sl"></span><input id="str" type="range" min="0" max="2" step="0.1" value="1"></label><div class="read" id="read" aria-live="polite"></div></div>
+<p class="note" data-i="note"></p>
+</div>
+</section>
+
+<div class="stats"><div><b>3.73</b><span data-i="st1"></span></div><div><b>3</b><span data-i="st2"></span></div><div><b>5</b><span data-i="st3"></span></div><div><b>3</b><span data-i="st4"></span></div></div>
+<h2 data-i="s_proj"></h2>
+<div class="item"><h3 data-i="p1t"></h3><p data-i="p1d"></p><div class="meta" style="margin-top:10px" data-i="sh"></div><ol class="steps"><li data-i="s1"></li><li data-i="s2"></li><li data-i="s3"></li><li data-i="s4"></li></ol><p class="meta" data-i="p1r"></p><div class="tags">Python · Scikit-learn · Pandas · Google Colab</div></div>
+<div class="item"><h3 data-i="p2t"></h3><p data-i="p2d"></p><div class="tags">Python · OpenCV · Jupyter Notebook</div></div>
+<div class="item"><h3 data-i="p3t"></h3><p data-i="p3d"></p><div class="tags">C · Arduino UNO</div></div>
+
+<h2 data-i="s_repo"></h2>
+<ul class="repos">
+<li><a href="https://github.com/yildizmetehan/Machine-Learning" rel="noopener">Machine-Learning</a><span data-i="r1"></span></li>
+<li><a href="https://github.com/yildizmetehan/Artificial-Intelligence" rel="noopener">Artificial-Intelligence</a><span data-i="r2"></span></li>
+<li><a href="https://github.com/yildizmetehan/Image_Processing" rel="noopener">Image_Processing</a><span data-i="r3"></span></li>
+<li><a href="https://github.com/yildizmetehan/Natural-Language-Processing" rel="noopener">Natural-Language-Processing</a><span data-i="r4"></span></li>
+<li><a href="https://github.com/yildizmetehan/YSA" rel="noopener">YSA</a><span data-i="r5"></span></li>
+</ul>
+<p class="more"><a href="https://github.com/yildizmetehan?tab=repositories" rel="noopener" data-i="r_all"></a></p>
+
+<h2 data-i="s_exp"></h2>
+<div class="item"><h3>BAYKAR TECH</h3><div class="meta" data-i="e1m"></div><p data-i="e1d"></p></div>
+<div class="item"><h3>Avras Mühendislik</h3><div class="meta" data-i="e2m"></div><p data-i="e2d"></p></div>
+<div class="item"><h3>Asimetrik Ses, Işık ve Görüntü Sistemleri</h3><div class="meta" data-i="e3m"></div><p data-i="e3d"></p></div>
+
+<h2 data-i="s_edu"></h2>
+<div class="item"><h3 data-i="u1t"></h3><div class="meta" data-i="u1m"></div></div>
+<div class="item"><h3 data-i="u2t"></h3><div class="meta" data-i="u2m"></div></div>
+
+<h2 data-i="s_skill"></h2>
+<dl class="skills">
+<dt data-i="k1"></dt><dd>Python, C, Scikit-learn, Pandas, OpenCV</dd>
+<dt data-i="k2"></dt><dd>AutoCAD, Proteus, DIALux, Google Colab, Jupyter Notebook</dd>
+<dt data-i="k3"></dt><dd data-i="k3d"></dd>
+</dl>
+
+<h2 data-i="s_cert"></h2>
+<ul class="certs"><li data-i="c1"></li><li data-i="c2"></li><li>Code Sprint</li></ul>
+
+<h2 data-i="s_cont"></h2>
+<div class="links"><a href="mailto:mete5820@gmail.com">mete5820@gmail.com</a><a href="https://www.linkedin.com/in/metehanyildiz0/" rel="noopener">LinkedIn</a><a href="https://github.com/yildizmetehan" rel="noopener">GitHub</a></div>
+<footer data-i="foot"></footer>
+</main>
+
+<script>
+const T={
+tr:{h1:"Sensörlerin zamanla bozulan ölçümlerini yapay zekayla düzeltmeyi araştırıyorum.",
+lead:"Elektrik-Elektronik Mühendisiyim; Üsküdar Üniversitesi’nde Yapay Zeka Mühendisliği yüksek lisans tez çalışmamı yürütüyorum. Elektro-optik sistemler, sensör verisi ve görüntü işleme alanlarında çalışıyorum.",
+k_ref:"Gerçek değer",k_raw:"Ham sensör (sürüklenme var)",k_ok:"Telafi edilmiş ölçüm",sw_on:"Telafiyi aç",sw_off:"Telafiyi kapat",
+ct:"Gaz sensörü ölçümünün zamanla sürüklenmesini ve telafi edilmiş halini gösteren örnek grafik",
+s_proj:"Projeler",
+p1t:"Gaz sensörlerinde sürüklenme telafisi (yüksek lisans tezi)",p1d:"Gaz sensörlerinde uzun süreli kullanımla oluşan ölçüm sapmasını makine öğrenmesi ve derin öğrenme yöntemleriyle telafi etmeyi araştırıyorum. Şu an literatür taraması aşamasındayım: mevcut sürüklenme telafisi yöntemlerini ve kullanılan veri setlerini inceliyorum.",
+p2t:"Deri lezyonu görüntü işleme",p2d:"Tıbbi görüntülerde kontrastı iyileştiren, gürültüyü azaltan ve lezyon sınırlarını belirginleştiren bir işleme hattı geliştirdim.",
+p3t:"Akıllı ev otomasyon sistemi (lisans bitirme projesi)",p3d:"Duman sensörü, servo motor, buzzer ve LED ile otomatik kapı/perde kontrolü ve erken yangın uyarısı yapan mikrodenetleyici tabanlı bir prototip tasarladım.",
+s_exp:"Deneyim",
+e1m:"Elektro-optik sistemler bakım ve entegrasyon stajyeri · Eyl 2024 – Ara 2024",e1d:"İHA’larda kullanılan elektro-optik kameraların fonksiyonel test, optik hizalama, kalibrasyon ve entegrasyon çalışmalarına katıldım.",
+e2m:"Stajyer mühendis · Tem 2023 – Ağu 2023",e2d:"Endüstriyel ve ticari elektrik sistemlerinin kurulum, test ve bakımında çalıştım; AutoCAD ile proje çizimleri hazırladım.",
+e3m:"Stajyer mühendis · Haz 2022 – Ağu 2022",e3d:"Profesyonel ses, ışık ve görüntü sistemlerinde arıza tespiti, bakım ve onarım yaptım.",
+s_edu:"Eğitim",
+u1t:"Üsküdar Üniversitesi, Yapay Zeka Mühendisliği (Yüksek Lisans)",u1m:"2025 – devam ediyor · Not ortalaması 3.73 / 4.00 · Tez aşaması",
+u2t:"İstanbul Yeni Yüzyıl Üniversitesi, Elektrik-Elektronik Mühendisliği",u2m:"2018 – 2023 · Not ortalaması 3.17 / 4.00 · Onur derecesi",
+s_skill:"Beceriler",k1:"Programlama ve veri bilimi",k2:"Mühendislik ve simülasyon",k3:"Diller",k3d:"İngilizce (ileri seviye, teknik okuma ve yazma)",
+s_cont:"İletişim",foot:"İstanbul, Türkiye",
+st1:"yüksek lisans not ortalaması (4.00 üzerinden)",st2:"staj: savunma sanayii, elektrik tesisatı, ses-ışık sistemleri",st3:"herkese açık GitHub deposu",st4:"sertifika",
+sh:"Planladığım yaklaşım",s1:"Ham sensör verisini temizleyip zaman serisi olarak hazırlamak.",s2:"Sürüklenmeyi tanımlayan öznitelikleri çıkarmak.",s3:"Regresyon ve sınıflandırma modelleriyle sapmayı tahmin etmek.",s4:"Düzeltmenin doğruluk ve ölçüm kararlılığına etkisini deneylerle ölçmek.",
+p1r:"Deneysel sonuçlar tez ilerledikçe buraya eklenecek.",
+s_repo:"GitHub depolarım",r1:"Makine öğrenmesi çalışmaları",r2:"Yapay zeka çalışmaları (Jupyter Notebook)",r3:"Görüntü işleme çalışmaları (Jupyter Notebook)",r4:"Doğal dil işleme çalışmaları",r5:"Yapay sinir ağları (YSA) çalışmaları",r_all:"Tüm depoları GitHub’da gör",
+sl:"Sürüklenme şiddeti",rd:"Ortalama hata",ax:"Zaman (gün)",note:"Örnek veridir; gerçek tez sonuçları değildir. Sürüklenmenin ne demek olduğunu ve telafinin neyi düzelttiğini göstermek için üretildi.",s_cert:"Sertifikalar",c1:"AutoCAD Uzmanlık Sertifikası",c2:"İleri Seviye İngilizce Sertifikası"},
+en:{h1:"I’m researching how machine learning can correct sensors that drift over time.",
+lead:"I’m an Electrical and Electronics Engineer working on my M.Sc. thesis in Artificial Intelligence Engineering at Üsküdar University. My work spans electro-optical systems, sensor data, and image processing.",
+k_ref:"True value",k_raw:"Raw sensor (drifting)",k_ok:"Compensated reading",sw_on:"Turn compensation on",sw_off:"Turn compensation off",
+ct:"Example chart showing a gas sensor reading drifting over time and the compensated reading",
+s_proj:"Projects",
+p1t:"Gas sensor drift compensation (M.Sc. thesis)",p1d:"I’m researching how machine learning and deep learning can compensate for the measurement drift gas sensors develop over long-term use. I’m currently in the literature review stage, studying existing drift compensation methods and the datasets they use.",
+p2t:"Skin lesion image processing",p2d:"I built an image processing pipeline for medical images that improves contrast, reduces noise, and sharpens lesion boundaries.",
+p3t:"Smart home automation system (B.Sc. graduation project)",p3d:"I designed a microcontroller-based prototype with a smoke sensor, servo motors, buzzer, and LEDs for automatic door/curtain control and early fire warning.",
+s_exp:"Experience",
+e1m:"Electro-optical systems maintenance and integration intern · Sep 2024 – Dec 2024",e1d:"Worked on functional testing, optical alignment, calibration, and integration of electro-optical cameras used on UAVs.",
+e2m:"Intern engineer · Jul 2023 – Aug 2023",e2d:"Helped install, test, and maintain industrial and commercial electrical systems, and prepared technical drawings in AutoCAD.",
+e3m:"Intern engineer · Jun 2022 – Aug 2022",e3d:"Troubleshot, maintained, and repaired professional audio, lighting, and video systems.",
+s_edu:"Education",
+u1t:"Üsküdar University, M.Sc. in Artificial Intelligence Engineering",u1m:"2025 – present · GPA 3.73 / 4.00 · Thesis stage",
+u2t:"Istanbul Yeni Yüzyıl University, B.Sc. in Electrical and Electronics Engineering",u2m:"2018 – 2023 · GPA 3.17 / 4.00 · Honor degree",
+s_skill:"Skills",k1:"Programming and data science",k2:"Engineering and simulation",k3:"Languages",k3d:"English (advanced, technical), Turkish (native)",
+s_cont:"Contact",foot:"Istanbul, Turkey",
+st1:"M.Sc. GPA (out of 4.00)",st2:"internships: defense industry, electrical installation, audio-lighting systems",st3:"public GitHub repositories",st4:"certifications",
+sh:"The approach I’m planning",s1:"Clean the raw sensor data and prepare it as a time series.",s2:"Extract features that describe the drift.",s3:"Estimate the deviation with regression and classification models.",s4:"Measure the effect of the correction on accuracy and stability through experiments.",
+p1r:"Experimental results will be added here as the thesis progresses.",
+s_repo:"My GitHub repositories",r1:"Machine learning work",r2:"Artificial intelligence work (Jupyter Notebook)",r3:"Image processing work (Jupyter Notebook)",r4:"Natural language processing work",r5:"Artificial neural networks (YSA) work",r_all:"See all repositories on GitHub",
+sl:"Drift strength",rd:"Mean error",ax:"Time (days)",note:"Example data, not real thesis results. It is generated to show what drift means and what compensation corrects.",s_cert:"Certifications",c1:"AutoCAD Professional Certification",c2:"Advanced English Certificate"}};
+let lang="tr",on=false;
+const $=s=>document.querySelector(s),svg=$("#chart");
+let k=1,raf;
+const PX=t=>56+t*564,PY=p=>230-p/130*210;
+function pts(f){let d="";for(let i=0;i<=180;i++){const t=i/180;d+=(i?"L":"M")+PX(t).toFixed(1)+" "+PY(f(t)).toFixed(1)}return d}
+const truth=t=>45+30*(Math.sin(t*18.85)*.6+Math.sin(t*44)*.15),drift=t=>22*(.2+t+.08*Math.sin(t*9));
+function draw(){
+const S=+$("#str").value,m=t=>truth(t)+k*S*drift(t)+(1-k)*1.2*Math.sin(t*90),tx='font-size="11" fill="var(--mute)"';
+let g=`<title id="ct">${T[lang].ct}</title>`;
+[0,40,80,120].forEach(p=>g+=`<line x1="56" x2="620" y1="${PY(p)}" y2="${PY(p)}" stroke="var(--line)"/><text x="48" y="${PY(p)+4}" text-anchor="end" ${tx}>${p}</text>`);
+[0,60,120,180].forEach(d=>g+=`<text x="${PX(d/180)}" y="250" text-anchor="middle" ${tx}>${d}</text>`);
+g+=`<text x="338" y="272" text-anchor="middle" font-size="12" fill="var(--mute)">${T[lang].ax}</text><text x="12" y="125" text-anchor="middle" font-size="12" fill="var(--mute)" transform="rotate(-90 12 125)">ppm</text>`;
+let back="";for(let i=180;i>=0;i--){const t=i/180;back+="L"+PX(t).toFixed(1)+" "+PY(truth(t)).toFixed(1)}
+const dEnd=k*S*drift(1);
+g+=`<path d="${pts(m)+back}Z" fill="var(--raw)" opacity="${(.22*k).toFixed(2)}"/><path d="${pts(truth)}" fill="none" stroke="var(--mute)" stroke-width="1.6" stroke-dasharray="5 5"/><path d="${pts(m)}" fill="none" stroke="${k<.5?"var(--ok)":"var(--raw)"}" stroke-width="3" stroke-linejoin="round"/>`;
+if(dEnd>=1)g+=`<text x="616" y="${PY(truth(1)+dEnd)-8}" text-anchor="end" font-size="12" font-weight="600" fill="var(--raw)">+${dEnd.toFixed(0)} ppm</text>`;
+svg.innerHTML=g;
+let r=0,c=0;for(let i=0;i<=180;i++){const t=i/180;r+=S*drift(t);c+=Math.abs(1.2*Math.sin(t*90))}
+r/=181;c/=181;
+$("#read").innerHTML=`${T[lang].rd}: <b style="color:var(--raw)">${r.toFixed(1)} ppm</b> → <b style="color:var(--ok)">${c.toFixed(1)} ppm</b>`;
+$("#ktxt").textContent=on?T[lang].k_ok:T[lang].k_raw;
+$("#kline").style.borderColor=on?"var(--ok)":"var(--raw)";
+const b=$("#sw");b.textContent=on?T[lang].sw_off:T[lang].sw_on;b.setAttribute("aria-pressed",on)}
+function setLang(l){lang=l;document.documentElement.lang=l;
+document.querySelectorAll("[data-i]").forEach(e=>e.textContent=T[l][e.dataset.i]);
+document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===l));
+document.title=l==="tr"?"Metehan Yıldız – Portfolyo":"Metehan Yıldız – Portfolio";draw()}
+$("#str").oninput=draw;
+$("#sw").onclick=()=>{on=!on;cancelAnimationFrame(raf);const to=on?0:1,from=k,t0=performance.now(),dur=matchMedia("(prefers-reduced-motion: reduce)").matches?0:900;
+(function step(n){const p=dur?Math.min((n-t0)/dur,1):1;k=from+(to-from)*(1-Math.pow(1-p,3));draw();if(p<1)raf=requestAnimationFrame(step)})(t0)};
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+setLang("tr");
+</script>
+</body>
+</html>
